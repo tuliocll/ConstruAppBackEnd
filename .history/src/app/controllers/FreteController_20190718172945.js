@@ -1,16 +1,14 @@
 import * as Yup from "yup";
 import Produto from "../models/produto";
 
-class ProdutoController {
+class FreteController {
   async store(req, res) {
     const schema = Yup.object().shape({
       nome: Yup.string().required(),
-      descricao: Yup.string().required(),
       valor: Yup.number().required(),
-      imagem: Yup.string().required(),
-      fk_categoria: Yup.number().required(),
-      estoque: Yup.number().required(),
-      tipo: Yup.string().required()
+      status: Yup.string().required(),
+      localidade: Yup.string().required(),
+      fk_categoria: Yup.number().required()
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -33,12 +31,10 @@ class ProdutoController {
   async update(req, res) {
     const schema = Yup.object().shape({
       nome: Yup.string().required(),
-      descricao: Yup.string().required(),
       valor: Yup.number().required(),
-      imagem: Yup.string().required(),
-      fk_categoria: Yup.number().required(),
-      estoque: Yup.number().required(),
-      tipo: Yup.string().required()
+      status: Yup.string().required(),
+      localidade: Yup.string().required(),
+      fk_categoria: Yup.number().required()
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -75,4 +71,4 @@ class ProdutoController {
   }
 }
 
-export default new ProdutoController();
+export default new FreteController();

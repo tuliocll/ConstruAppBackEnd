@@ -3,7 +3,7 @@ import multer from "multer";
 import multerConfig from "./config/multer";
 
 import UserController from "./app/controllers/UserController";
-import CategoriaController from "./app/controllers/CategoriaController";
+import CategoriaController from "./app/controllers/Categoria";
 import SessionController from "./app/controllers/SessionController";
 import authMiddleware from "./app/midlewares/auth";
 

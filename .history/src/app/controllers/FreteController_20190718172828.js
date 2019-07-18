@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 import Produto from "../models/produto";
 
-class ProdutoController {
+class FreteController {
   async store(req, res) {
     const schema = Yup.object().shape({
       nome: Yup.string().required(),
@@ -75,4 +75,4 @@ class ProdutoController {
   }
 }
 
-export default new ProdutoController();
+export default new FreteController();

@@ -23,7 +23,7 @@ module.exports = {
       },
       valor: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.FLOAT
       },
       fk_indicacao: {
         allowNull: false,

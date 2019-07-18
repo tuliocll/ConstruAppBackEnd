@@ -2,32 +2,40 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("pedido_cabecalho", {
+    return queryInterface.createTable("produto", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      fk_usuario: {
+      nome: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
-      data: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      status: {
+      descricao: {
         allowNull: false,
         type: Sequelize.STRING
       },
       valor: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.FLOAT
       },
-      fk_indicacao: {
+      imagem: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      fk_categoria: {
         allowNull: false,
         type: Sequelize.INTEGER
+      },
+      estoque: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
+      tipo: {
+        allowNull: false,
+        type: Sequelize.STRING
       },
       created_at: {
         allowNull: false,
@@ -41,6 +49,6 @@ module.exports = {
   },
 
   down: queryInterface => {
-    return queryInterface.dropTable("pedido_cabecalho");
+    return queryInterface.dropTable("produto");
   }
 };

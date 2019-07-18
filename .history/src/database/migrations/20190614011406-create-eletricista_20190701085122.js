@@ -2,28 +2,16 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("frete", {
+    return queryInterface.createTable("eletricista", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      valor: {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },
-      status: {
+      nome: {
         allowNull: false,
         type: Sequelize.STRING
-      },
-      localidade: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      fk_categoria: {
-        allowNull: false,
-        type: Sequelize.INTEGER
       },
       created_at: {
         allowNull: false,
@@ -37,6 +25,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("frete");
+    return queryInterface.dropTable("eletricista");
   }
 };

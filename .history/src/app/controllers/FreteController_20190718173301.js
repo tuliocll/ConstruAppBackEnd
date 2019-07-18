@@ -1,44 +1,40 @@
 import * as Yup from "yup";
-import Produto from "../models/produto";
+import Frete from "../models/frete";
 
-class ProdutoController {
+class FreteController {
   async store(req, res) {
     const schema = Yup.object().shape({
       nome: Yup.string().required(),
-      descricao: Yup.string().required(),
       valor: Yup.number().required(),
-      imagem: Yup.string().required(),
-      fk_categoria: Yup.number().required(),
-      estoque: Yup.number().required(),
-      tipo: Yup.string().required()
+      status: Yup.string().required(),
+      localidade: Yup.string().required(),
+      fk_categoria: Yup.number().required()
     });
 
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: "Erro na validação" });
     }
 
-    const produtoExists = await Produto.findOne({
+    const freteExists = await Frete.findOne({
       where: { nome: req.body.nome }
     });
 
-    if (produtoExists) {
-      return res.status(400).json({ error: "Produto já cadastrado!" });
+    if (freteExists) {
+      return res.status(400).json({ error: "Frete já cadastrado!" });
     }
 
-    const produto = await Produto.create(req.body);
+    const frete = await Frete.create(req.body);
 
-    return res.json(produto);
+    return res.json(frete);
   }
 
   async update(req, res) {
     const schema = Yup.object().shape({
       nome: Yup.string().required(),
-      descricao: Yup.string().required(),
       valor: Yup.number().required(),
-      imagem: Yup.string().required(),
-      fk_categoria: Yup.number().required(),
-      estoque: Yup.number().required(),
-      tipo: Yup.string().required()
+      status: Yup.string().required(),
+      localidade: Yup.string().required(),
+      fk_categoria: Yup.number().required()
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -47,15 +43,15 @@ class ProdutoController {
 
     const { nome } = req.body;
 
-    const produto = await Produto.findByPk(req.body.produtoID);
+    const frete = await Frete.findByPk(req.body.freteId);
 
-    if (nome !== produto.nome) {
-      const produtoExists = await Produto.findOne({
+    if (nome !== frete.nome) {
+      const freteExists = await Frete.findOne({
         where: { nome: req.body.nome }
       });
 
-      if (produtoExists) {
-        return res.status(400).json({ error: "Produto já cadastrado!" });
+      if (freteExists) {
+        return res.status(400).json({ error: "Frete já cadastrado!" });
       }
     }
 
@@ -75,4 +71,4 @@ class ProdutoController {
   }
 }
 
-export default new ProdutoController();
+export default new FreteController();

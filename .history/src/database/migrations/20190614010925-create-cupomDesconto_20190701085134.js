@@ -2,32 +2,28 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("pedido_cabecalho", {
+    return queryInterface.createTable("cupom_desconto", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      fk_usuario: {
+      fk_categoria: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      data: {
+      desconto: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.FLOAT
       },
-      status: {
+      valor_minimo: {
+        allowNull: false,
+        type: Sequelize.FLOAT
+      },
+      imagem: {
         allowNull: false,
         type: Sequelize.STRING
-      },
-      valor: {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },
-      fk_indicacao: {
-        allowNull: false,
-        type: Sequelize.INTEGER
       },
       created_at: {
         allowNull: false,
@@ -40,7 +36,7 @@ module.exports = {
     });
   },
 
-  down: queryInterface => {
-    return queryInterface.dropTable("pedido_cabecalho");
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.dropTable("cupom_desconto");
   }
 };
