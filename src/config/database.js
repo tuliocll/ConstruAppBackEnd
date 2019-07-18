@@ -1,7 +1,12 @@
 module.exports = {
-  username: "root",
+  dialect: "postgres",
+  username: "postgres",
   password: "root",
   database: "construcao",
   host: "127.0.0.1",
-  dialect: "mysql"
+  define: {
+    timestamps: true,
+    underscored: true,
+    underscoredAll: true
+  }
 };

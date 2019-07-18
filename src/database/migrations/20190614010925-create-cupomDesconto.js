@@ -2,41 +2,41 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("CupomDesconto", {
+    return queryInterface.createTable("cupom_desconto", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       fk_categoria: {
         allowNull: false,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       desconto: {
         allowNull: false,
-        type: DataTypes.FLOAT
+        type: Sequelize.FLOAT
       },
       valor_minimo: {
         allowNull: false,
-        type: DataTypes.FLOAT
+        type: Sequelize.FLOAT
       },
       imagem: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       }
     });
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("CupomDesconto");
+    return queryInterface.dropTable("cupom_desconto");
   }
 };

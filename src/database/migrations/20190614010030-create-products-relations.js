@@ -2,33 +2,33 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("ProdutosRelacionados", {
+    return queryInterface.createTable("produtos_relacionados", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       fk_produto_principal: {
         allowNull: false,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       fk_produto_relacionado: {
         allowNull: false,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       }
     });
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("ProdutosRelacionados");
+    return queryInterface.dropTable("produtos_relacionados");
   }
 };

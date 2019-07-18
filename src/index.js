@@ -1,12 +1,3 @@
-const express = require("express");
-const cores = require("cores");
-
-const app = express();
-
-app.use(cores());
-
-app.use(express.urlencoded({ extended: false }));
-
-app.use(require("./routes"));
+import app from "./app";
 
 app.listen(3333);

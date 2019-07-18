@@ -7,15 +7,21 @@
     "dev": "nodemon src/index.js"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cores": "^0.8.5",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.1",
     "mysql2": "^1.6.5",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.3",
     "sequelize": "^5.8.9",
-    "sharp": "^0.22.1"
+    "sharp": "^0.22.1",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.1",
-    "sequelize-cli": "^5.5.0"
+    "sequelize-cli": "^5.5.0",
+    "sucrase": "^3.10.1"
   }
 }

@@ -1,63 +1,63 @@
 "use strict";
 
 module.exports = {
-  up: (queryInterface, DataTypes) => {
-    return queryInterface.createTable("Users", {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.createTable("users", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       nome: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       email: {
         allowNull: false,
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         unique: true
       },
       sobrenome: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       senha: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       cpf: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       telefone: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       sexo: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       permissao: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       nascimento: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       }
     });
   },
 
   down: queryInterface => {
-    return queryInterface.dropTable("Users");
+    return queryInterface.dropTable("users");
   }
 };

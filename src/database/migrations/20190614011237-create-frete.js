@@ -7,31 +7,31 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       valor: {
         allowNull: false,
-        type: DataTypes.FLOAT
+        type: Sequelize.FLOAT
       },
       status: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       localidade: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       fk_categoria: {
         allowNull: false,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       }
     });
   },

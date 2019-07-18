@@ -1,57 +1,57 @@
 "use strict";
 
 module.exports = {
-  up: (queryInterface, DataTypes) => {
+  up: (queryInterface, Sequelize) => {
     return queryInterface.createTable("enderecos", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       fk_usuario: {
         allowNull: false,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       endereco: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       cep: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       cidade: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       uf: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       numero: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       obs: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       contato: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       nome: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       }
     });
   },

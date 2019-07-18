@@ -1,46 +1,46 @@
 "use strict";
 
 module.exports = {
-  up: (queryInterface, DataTypes) => {
-    return queryInterface.createTable("PedidoCabecalho", {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.createTable("pedido_cabecalho", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       fk_usuario: {
         allowNull: false,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       data: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       },
       status: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       valor: {
         allowNull: false,
-        type: DataTypes.FLOAT
+        type: Sequelize.FLOAT
       },
       fk_indicacao: {
         allowNull: false,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       }
     });
   },
 
   down: queryInterface => {
-    return queryInterface.dropTable("PedidoCabecalho");
+    return queryInterface.dropTable("pedido_cabecalho");
   }
 };
