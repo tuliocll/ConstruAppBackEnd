@@ -16,17 +16,17 @@ class UserController {
     });
 
     if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: "Erro na validação" });
+      return res.status(400).json({ status: "Erro na validação" });
     }
 
     const userExists = await User.findOne({ where: { email: req.body.email } });
     if (userExists) {
-      return res.status(400).json({ error: "Usuario já cadastrado!" });
+      return res.status(400).json({ status: "Usuario já cadastrado!" });
     }
 
     const user = await User.create(req.body);
 
-    return res.json(user);
+    return res.json({ status: "ok" });
   }
 
   async update(req, res) {
@@ -51,7 +51,7 @@ class UserController {
     });
 
     if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: "Erro na validação" });
+      return res.status(400).json({ status: "Erro na validação" });
     }
 
     const { email, senha_usuario, senhaAntiga } = req.body;
@@ -62,12 +62,12 @@ class UserController {
       const userExists = await User.findOne({ where: { email } });
 
       if (userExists) {
-        return res.status(400).json({ error: "Usuario já cadastrado!" });
+        return res.status(400).json({ status: "Usuario já cadastrado!" });
       }
     }
 
     if (senhaAntiga && !(await user.checkPassword(senhaAntiga))) {
-      return res.status(401).json({ error: "Senha não confere!" });
+      return res.status(401).json({ status: "Senha não confere!" });
     }
 
     const userAtualizado = await user.update(req.body);
