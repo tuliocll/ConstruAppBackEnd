@@ -6,6 +6,7 @@ import UserController from "./app/controllers/UserController";
 import CategoriaController from "./app/controllers/CategoriaController";
 import SessionController from "./app/controllers/SessionController";
 import authMiddleware from "./app/midlewares/auth";
+import FileController from "./app/controllers/FileController";
 
 const routes = new express.Router();
 const upload = multer(multerConfig);
@@ -21,7 +22,5 @@ routes.post("/categoria", CategoriaController.store);
 routes.put("/categoria", CategoriaController.update);
 routes.get("/categoria", CategoriaController.find);
 
-routes.post("/files", upload.single("file"), (req, res) => {
-  return res.json({ ok: true });
-});
+routes.post("/files", upload.single("file"), FileController.store);
 export default routes;
